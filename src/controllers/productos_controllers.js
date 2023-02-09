@@ -44,7 +44,7 @@ export const delProducto = async (req, res) => {
         if(result.affectedRows <= 0) return res.status(404).json({
             message: "Producto no encontrado"
         });
-        res.status(204)
+        res.status(204).json({message: "Producto eliminado"});
     } catch (error) {
         return res.status(500).json({ message: "Problemas de conexion con la BD" });
     };
