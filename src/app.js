@@ -1,6 +1,5 @@
 import express from "express";
 import rutas from "./routers/productos_routers.js";
-var cors = require('cors');
 
 const app = express();
 
@@ -19,6 +18,5 @@ app.use(express.json());
 
 /* Rutas */
 app.use(rutas);
-app.use(cors());
 
 export default app;
