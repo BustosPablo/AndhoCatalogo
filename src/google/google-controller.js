@@ -24,7 +24,7 @@ oauth2Client.setCredentials({
 // Almacenamiento momentaneo
 const localDisk = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '/subir'));
+        cb(null, path.join(__dirname, '..', '/subir'));
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname);
