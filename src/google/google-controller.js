@@ -2,6 +2,7 @@
 const { google } = require('googleapis');
 const multer = require('multer');
 const fs = require('fs');
+const path = require('path');
 
 /* Configuracion de Google */
 const CLIENT_ID = "14975470431-136qdlcg13b84d3n4o8jsc67u64dm55u.apps.googleusercontent.com";
@@ -23,7 +24,7 @@ oauth2Client.setCredentials({
 // Almacenamiento momentaneo
 const localDisk = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'src/public/subir');
+        cb(null, path.join(__dirname, '/subir'));
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname);
