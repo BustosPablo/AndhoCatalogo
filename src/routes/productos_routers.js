@@ -1,11 +1,11 @@
 const express = require('express')
 const rutas = express.Router();
-const { getCantidad, delProducto, getProducto, postProducto, putProducto } = require( "../controllers/productos_controllers.js");
+const { getElProducto, delProducto, getProducto, postProducto, putProducto } = require( "../controllers/productos_controllers.js");
 
 /* Routes */
 rutas.get('/producto', getProducto);
 
-rutas.get('/producto/cantidad', getCantidad);
+rutas.get('/producto/:id', getElProducto);
 
 rutas.patch('/productos', postProducto);
 
