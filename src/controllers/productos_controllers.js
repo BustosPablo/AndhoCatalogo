@@ -10,12 +10,12 @@ const getProducto = async (req, res) =>{
     };  
 };
 
-const getCantidad = async (req, res) =>{
+const getElProducto = async (req, res) =>{
     try {
-        const result = await pool.query('SELECT COUNT(*) FROM productos AS TOTAL');
+        const result = await pool.query('SELECT * FROM productos WHERE ID=?', [req.params.id]);
         res.json(result[0]);
     } catch (error) {
-        return res.status(500).json({ message: "Zapato no encontrado" });
+        return res.status(500).json({ message: "Producto no encontrado" });
     };  
 };
 
@@ -68,7 +68,7 @@ const putProducto = async(req, res) =>{
 
 module.exports = {
     getProducto, 
-    getCantidad, 
+    getElProducto, 
     postProducto, 
     delProducto, 
     putProducto
